@@ -1,20 +1,24 @@
 import $ from 'jquery';
-import { WOW } from './vendor/wow.min.js';
-import { gaPush, gtmSet } from './components/gtm-events';
+import { WOW } from './vendor/wow.min';
+// import { gaPush, gtmSet } from './components/gtm-events';
 
-import { detectDevice } from './components/detectDevice';
+import detectDevice from './components/detectDevice';
 // import {videoTeaser} from './components/videoTeaser';
 import { closeModal, openModal } from './components/modal';
 import {
   fieldListener, validateFields, keyField, prepField,
 } from './components/inputs';
+import GTMEvents from './components/gtm-events';
 
+const GTM = new GTMEvents();
 window.jQuery = window.$ = $;
 
 /// /////// DocReady //////////
 $(() => {
   detectDevice(); // videoTeaser();
-  new WOW().init(); gtmSet();
+  new WOW().init();
+  GTM.addEventListeners();
+  // gtmSet();
 
   const $body = document.querySelector('body');
 
@@ -111,7 +115,7 @@ function submitCustomFormRequest() {
         transactionPaymentType: null,
         transactionShippingMethod: null,
       };
-      gaPush(dataSuccess); // console.log(dataSuccess);
+      GTM.gaPush(dataSuccess); // console.log(dataSuccess);
       closeModal('#req-modal-box');
       openModal('#succ-modal-box');
     })
