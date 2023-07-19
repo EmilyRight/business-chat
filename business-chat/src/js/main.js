@@ -1,14 +1,13 @@
 import $ from 'jquery';
 import { WOW } from './vendor/wow.min';
-// import { gaPush, gtmSet } from './components/gtm-events';
 
 import detectDevice from './components/detectDevice';
-// import {videoTeaser} from './components/videoTeaser';
 import { closeModal, openModal } from './components/modal';
 import {
   fieldListener, validateFields, keyField, prepField,
 } from './components/inputs';
 import GTMEvents from './components/gtm-events';
+import generateId from './components/utils';
 
 const GTM = new GTMEvents();
 window.jQuery = window.$ = $;
@@ -134,7 +133,7 @@ function submitCustomFormRequest() {
         transactionPaymentType: null,
         transactionShippingMethod: null,
       };
-      gaPush(dataSuccess);
+      GTM.gaPush(dataSuccess);
     })
     .finally(() => toggleLoader());
 }
@@ -153,12 +152,4 @@ function once(fn, context) {
     if (fn) { result = fn.apply(context || this, arguments); fn = null; }
     return result;
   };
-}
-
-/// Unique ID
-function dec2hex(dec) { return (`0${dec.toString(16)}`).substr(-2); }
-function generateId(len) {
-  const arr = new Uint8Array((len || 40) / 2);
-  window.crypto.getRandomValues(arr);
-  return Array.from(arr, dec2hex).join('');
 }

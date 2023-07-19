@@ -5,8 +5,6 @@ const getMobileOs = () => {
   const { userAgent } = navigator;
   const parser = new UAParser();
   let platform = 'unknown';
-  // console.log(parser.getDevice().type);
-  // console.warn(`${navigator.vendor}|| ${navigator.vendorSub}`);
 
   if (parser.getDevice().vendor === 'Huawei') {
     platform = 'huawei';
@@ -19,9 +17,6 @@ const getMobileOs = () => {
   }
   return platform;
 };
-
-// detect iOS
-// const isIOS = () => getMobileOs() === 'ios';
 
 function detectDevice() {
   const deviceOs = getMobileOs();
