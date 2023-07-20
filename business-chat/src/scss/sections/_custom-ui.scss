@@ -23,7 +23,8 @@ button {
 .reqform {
   width: 40rem;
   max-width: 100%;
-  .error-text {
+  .error-text,
+  .error-text-code {
     display: none;
   }
   .text-error .error-text {

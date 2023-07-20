@@ -54,9 +54,14 @@ $(() => {
   function trySubmit() {
     validateFields();
     document.querySelector('.selectorinn').style.display = 'none';
-    const _erCount = document.querySelectorAll('.text-error').length;
-    const frmReady = (_erCount === 0);
-    if (frmReady) { submitCustomFormRequest(); } else { console.warn('UNREADY SUBMIT'); }
+    const errorsCount = document.querySelectorAll('.text-error').length;
+    const formIsReady = (errorsCount === 0);
+    console.log(errorsCount, formIsReady);
+    if (formIsReady) {
+      submitCustomFormRequest();
+    } else {
+      console.warn('UNREADY SUBMIT');
+    }
   }
 
   /*  let $fish = document.querySelectorAll('.fish');
@@ -92,9 +97,10 @@ function submitCustomFormRequest() {
     requestId: `${Date.now()}_${Math.random().toString().slice(2, 12)}`,
     region: siteId.slice(4).toLowerCase(),
     InnCompany: inn,
-    AdditionalInformation: 'Подключение услуги SMS - Таргет',
+    AdditionalInformation: 'Подключение услуги Бизнес - чат',
     // tariffs: [{ name: tariffFrontName, }],
   };
+  console.log(requestBody);
 
   toggleLoader();
   fetch(url, {
@@ -106,10 +112,10 @@ function submitCustomFormRequest() {
       const reqID = requestBody.requestId;
       const dataSuccess = {
         eventAction: 'send',
-        eventLabel: 'checkout_sms-target-form_server_response',
+        eventLabel: 'checkout_business-chat-form_server_response',
         requestId: reqID,
         eventCategory: 'Conversions',
-        eventContent: `sms-target_${Date.now()}${generateId(12)}`,
+        eventContent: `business-chat_${Date.now()}${generateId(12)}`,
         eventContext: 'successful',
         transactionPaymentType: null,
         transactionShippingMethod: null,
@@ -125,10 +131,10 @@ function submitCustomFormRequest() {
       const reqID = requestBody.requestId;
       const dataSuccess = {
         eventAction: 'send',
-        eventLabel: 'checkout_sms-target-form_server_response',
+        eventLabel: 'checkout_business-chat-form_server_response',
         requestId: reqID,
         eventCategory: 'Conversions',
-        eventContent: `shop_sms-target_${Date.now()}${generateId(12)}`,
+        eventContent: `shop_business-chat_${Date.now()}${generateId(12)}`,
         eventContext: 'unsuccessful',
         transactionPaymentType: null,
         transactionShippingMethod: null,
