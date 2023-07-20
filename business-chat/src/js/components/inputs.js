@@ -42,7 +42,6 @@ function showErrors(textHolder) {
     }
   } else if (inputField.classList.contains('js-tel')) {
     const validatedPhone = validatePhone();
-    console.log(validatedPhone);
 
     if (validatedPhone.correctPhoneNumber === null) {
       textHolder.classList.add(errorText);

@@ -100,7 +100,6 @@ function submitCustomFormRequest() {
     AdditionalInformation: 'Подключение услуги Бизнес - чат',
     // tariffs: [{ name: tariffFrontName, }],
   };
-  console.log(requestBody);
 
   toggleLoader();
   fetch(url, {
