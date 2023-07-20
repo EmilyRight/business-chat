@@ -15,18 +15,18 @@ function defineInput(event) {
 }
 
 function setPhonemask() {
-  const phone = document.querySelector('.js-tel');
+  const phoneInput = document.querySelector('.js-tel');
   const im = new Inputmask('+7(999) 999-99-99');
-  im.mask(phone);
+  im.mask(phoneInput);
 }
 
 function validatePhone() {
-  const phone = document.querySelector('.js-tel');
-  const phoneNumber = phone.value.match(/^((8|\+7)[\- ]?)?(\(?[3,4,5,6,8,9]\d{2}\)?[\- ]?)[\d\- ]{7,10}$/);
-  const region = phone.value.match(/\([1,2,7,0]/);
+  const phoneInput = document.querySelector('.js-tel');
+  const correctPhoneNumber = phoneInput.value.match(/^((8|\+7)[\- ]?)?(\(?[3,4,5,6,8,9]\d{2}\)?[\- ]?)[\d\- ]{7,10}$/);
+  const incorrectRegion = phoneInput.value.match(/\([1,2,7,0]/);
 
   return {
-    phoneNumber, region,
+    correctPhoneNumber, incorrectRegion,
   };
 }
 
@@ -42,14 +42,15 @@ function showErrors(textHolder) {
     }
   } else if (inputField.classList.contains('js-tel')) {
     const validatedPhone = validatePhone();
+    console.log(validatedPhone);
 
-    if (!validatedPhone.phoneNumber) {
+    if (validatedPhone.correctPhoneNumber === null) {
       textHolder.classList.add(errorText);
     } else {
       textHolder.classList.remove(errorText);
     }
 
-    if (validatedPhone.region) {
+    if (validatedPhone.incorrectRegion !== null) {
       errorBlock.innerText = phoneRegionCodeError;
     } else {
       errorBlock.innerText = phoneError;
