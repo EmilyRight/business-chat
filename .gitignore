@@ -1,0 +1,13 @@
+.idea/
+
+.sass-cache/
+.sass-cache/*
+scss/.sass-cache/
+
+*css.map
+node_modules
+.cache
+.parcel-cache
+
+dist
+parcel-bundle-reports
