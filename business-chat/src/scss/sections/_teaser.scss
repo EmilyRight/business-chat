@@ -19,7 +19,7 @@
   .teaser-layer {
     position: relative;
     max-height: 60vh;
-    min-height: 56rem;
+    min-height: 53.5rem;
     height: 50vw;
     .pic-layer {
       position: absolute;
@@ -31,19 +31,19 @@
     .pic-layer--laptop {
       width: 57rem;
       max-width: 50%;
-      top: 24%;
-      right: 0;
+      top: 20%;
+      right: 4%;
     }
-    .pic-layer--toggl {
+    .pic-layer--glass {
       width: 13.8rem;
-      left: 44%;
-      top: 40%;
+      right: 3%;
+      bottom: 15%;
     }
-    .pic-layer--gear {
-      width: 20.4rem;
-      max-width: 100%;
-      left: 48%;
-      top: 38%;
+    .pic-layer--message {
+      width: 17.5rem;
+      max-width: 50%;
+      top: 11.5%;
+      right: 0;
       &:before {
         @extend %ab;
         width: 20rem;
@@ -53,10 +53,28 @@
         position: absolute;
         z-index: 0;
         filter: blur(8rem);
-        opacity: 0.8;
+        opacity: 0.4;
+      }
+    }
+    .pic-layer--bag {
+      width: 20.4rem;
+      max-width: 100%;
+      left: 43%;
+      top: 27%;
+      z-index: -1;
+      &:before {
+        @extend %ab;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+        background: #00b3ee;
+        position: absolute;
+        z-index: 0;
+        filter: blur(8rem);
+        opacity: 0.6;
       }
       img {
-        animation: gear 40s ease-in-out alternate-reverse infinite;
+        // animation: gear 40s ease-in-out alternate-reverse infinite;
       }
     }
     @keyframes gear {
@@ -69,23 +87,33 @@
     }
 
     @media (max-width: 600px) {
-      min-height: 38rem;
-      .pic-layer--toggl {
-        width: 9.8rem;
-        left: 5%;
+      min-height: 58rem;
+      .pic-layer--glass {
+        width: 5.8rem;
+        right: 10%;
+        top: 45%;
       }
-      .pic-layer--gear {
-        width: 13.5rem;
-        left: 23%;
+      .pic-layer--message {
+        width: 7.8rem;
+        top: 17%;
+        right: 5%;
+        &:before {
+          display: none;
+        }
+      }
+      .pic-layer--bag{
+        width: 30vw;
+        max-width: 15.5rem;
+        left: 0%;
         &:before {
           display: none;
         }
       }
       .pic-layer--laptop {
-        width: 34rem;
+        width: 36rem;
         max-width: 100%;
-        right: -16%;
-        top: 20%;
+        right: 0%;
+        top: 18%;
       }
     }
   }
@@ -125,6 +153,7 @@
     }
     @media (max-width: 600px) {
       width: 6.4rem;
+      margin: 0 auto;
     }
   }
 
@@ -141,7 +170,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 12%;
+    bottom: 23%;
     z-index: 2;
     margin-bottom: -1px; //fix adjusted size display
     &__text {
@@ -163,23 +192,6 @@
         font-size: 2.2rem;
         display: block;
         margin: 1.5rem 0 3.6rem;
-      }
-
-      .teaser-more {
-        display: inline-block;
-        background: none;
-        border: none;
-        padding: 0;
-        font: bold 1.6rem $font1;
-        text-transform: uppercase;
-        //color:#fff;text-shadow: 0 0 .8em rgba(0,0,0,.3);
-        &__icon {
-          display: inline-block;
-          vertical-align: middle;
-          margin-left: 0.5rem;
-          width: 1rem;
-          transform: rotate(90deg);
-        }
       }
     }
   }
@@ -218,7 +230,6 @@
 
   @media (max-width: 600px) {
     overflow: visible !important;
-    margin-bottom: 40%;
 
     //&:before,&:after{display:none}
     .video-layer {
@@ -228,14 +239,16 @@
       } //37.5rem default
     }
     .teaser-body {
-      bottom: auto; //position: relative;
+      bottom: 0; //position: relative;
       .container {
         padding: 0;
+
       }
 
       &__text {
         padding: 1.8rem;
-        margin: -4.5rem auto 2.7rem;
+        margin: 0;
+
         background: #000;
         box-shadow: none;
         position: relative;

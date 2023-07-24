@@ -1,7 +1,7 @@
 .section--get-consult {
   background: #f3f5f6;
   .section-layer {
-    padding-top: 3.6rem;
+    padding-top: 10rem;
     padding-bottom: 3.6rem;
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,9 @@
     justify-content: space-between;
 
     .pic-layer--mail {
-      width: 40%;
+      width: 30%;
+      margin-top: -15%;
+      margin-left: -5%;
       img {
         display: block;
         max-width: 100%;
@@ -35,6 +37,7 @@
 
   @media (max-width: $tablet) {
     .section-layer {
+      padding-top: 3.6rem;
       flex-direction: column;
       .box-content {
         max-width: 100%;
@@ -46,9 +49,8 @@
         padding: 0;
       }
       .pic-layer--mail {
-        width: 28rem;
-        margin-left: 7%;
-        margin-top: -5rem;
+        width: 15rem;
+        margin-top: 1rem;
         img {
           margin: 0 auto;
         }
