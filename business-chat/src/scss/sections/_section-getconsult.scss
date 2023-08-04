@@ -5,27 +5,34 @@
     padding-bottom: 3.6rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   .box-content {
-    flex: 50% 0 0;
+    flex: 44% 0 0;
+    margin-top: 2rem;
     &__title {
-      font-size: 2.8rem;
-      line-height: 1.29;
+      // font-size: 2.8rem;
+      // line-height: 1.29;
       margin-bottom: 1rem;
     }
     &__text p {
-      font-size: 1.9rem;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
     }
   }
   .box-pic {
-    padding-left: 3rem;
-    display: flex;
-    justify-content: space-between;
-
+    position: relative;
+    flex: 30% 0 0;
+    min-height: 23.5rem;
+    .pic-layer {
+      position: absolute;
+      pointer-events: none;
+    }
     .pic-layer--mail {
-      width: 30%;
-      margin-top: -15%;
-      margin-left: -5%;
+      width: 45%;
+      top: 60%;
+      left: 0%;
+      z-index: 1;
       img {
         display: block;
         max-width: 100%;
@@ -33,27 +40,93 @@
         margin: -50% auto;
       }
     }
+    .pic-layer--phone {
+      width: 63%;
+      top: 26%;
+      left: 18%;
+      z-index: 1;
+      img {
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: -50% auto;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 15rem;
+        height: 15rem;
+        background-color: rgb(63, 204, 255);
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.8;
+        filter: blur(65px);
+      }
+    }
+  }
+
+  .btn {
+    max-height: 6rem;
   }
 
   @media (max-width: $tablet) {
     .section-layer {
       padding-top: 3.6rem;
+      padding-bottom: 3.6rem;
       flex-direction: column;
       .box-content {
         max-width: 100%;
         width: auto;
+        order: 1;
+        margin: 0;
+        &__title {
+          // font-size: 2.8rem;
+          // line-height: 1.29;
+          margin-bottom: 1.8rem;
+        }
+        &__text p {
+          font-size: 1.9rem;
+          line-height: 2.6rem;
+          margin-bottom: 2.4rem;
+        }
       }
       .box-pic {
-        flex-direction: column-reverse;
+        flex: 0 0 auto;
+        order: 3;
+        width: 100%;
+        max-width: 40rem;
         margin: 0 auto;
         padding: 0;
-      }
-      .pic-layer--mail {
-        width: 15rem;
-        margin-top: 1rem;
-        img {
-          margin: 0 auto;
+        display: block;
+        .pic-layer--mail {
+          width: 40%;
+          max-width: 15rem;
+          top: 65%;
+          left: 20%;
+          img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            margin: -50% auto;
+          }
         }
+        .pic-layer--phone {
+          width: 50%;
+          max-width: 17rem;
+          top: 40%;
+          left: 38%;
+
+          img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            margin: -50% auto;
+          }
+
+        }
+      }
+      .btn {
+        order: 2;
       }
     }
   }
