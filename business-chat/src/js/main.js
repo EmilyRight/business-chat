@@ -44,8 +44,8 @@ $(() => {
   });
 
   // INPUTS
-  fieldListener($body, ['mousemove', 'mouseover', 'mouseout', 'blur'], prepField);
-  fieldListener($body, ['focus', 'click', 'beforeinput', 'keydown', 'change', 'paste'], keyField);
+  // fieldListener($body, ['mousemove', 'mouseover', 'mouseout', 'blur'], prepField);
+  fieldListener($body, ['focus', 'active', 'click', 'beforeinput', 'keydown', 'change', 'paste'], keyField);
 
   // BUTTON SUBM
   const $formBtn = document.querySelectorAll('.js-new-req');
@@ -87,7 +87,7 @@ function submitCustomFormRequest() {
   const phone = document.querySelector('#telField').value;
 
   const siteId = localStorage.getItem('siteId') || 'siteMSK';
-  const url = `api/customForm/submission?siteId=${siteId}&formId=CrmMyTeamRequest`;
+  const url = `https://tele2.ru/api/customForm/submission?siteId=${siteId}&formId=CrmMyTeamRequest`;
   // const tariffFrontName = 'SMS-target';
 
   const requestBody = {
